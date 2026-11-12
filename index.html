@@ -8,121 +8,255 @@
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
       <!-- Bootstrap Icons -->
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+      <style>
+         :root {
+            --cor-destaque: #8b4b42;
+            --cor-destaque-hover: #713a33;
+         }
+
+         body {
+            background-color: #fff;
+            background-image: url("bonequinha.png");
+            background-position: right bottom;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: min(55vw, 520px) auto;
+            color: #302b2a;
+         }
+
+         .site-header {
+            background: linear-gradient(120deg, #302626, #503a36);
+            box-shadow: 0 4px 18px rgba(38, 27, 24, 0.16);
+         }
+
+         .site-nav a {
+            display: inline-block;
+            text-decoration: none;
+            transition: color 180ms ease, transform 180ms ease;
+         }
+
+         .site-nav a:hover {
+            color: #f3c7b9 !important;
+            transform: translateY(-2px);
+         }
+
+         .about-panel {
+            padding: clamp(1.5rem, 4vw, 3rem);
+            border: 1px solid rgba(139, 75, 66, 0.12);
+            border-radius: 1.5rem;
+            background: rgba(255, 255, 255, 0.96);
+            box-shadow: 0 18px 50px rgba(62, 42, 37, 0.1);
+         }
+
+         .profile-photo {
+            border: 6px solid #fff;
+            box-shadow: 0 8px 26px rgba(62, 42, 37, 0.18);
+         }
+
+         .section-title {
+            color: #382d2a;
+            font-weight: 700;
+         }
+
+         .project-card {
+            overflow: hidden;
+            border: 1px solid rgba(139, 75, 66, 0.12);
+            border-radius: 1.25rem;
+            background: rgba(255, 255, 255, 0.97);
+            box-shadow: 0 12px 32px rgba(62, 42, 37, 0.09);
+            transition: transform 220ms ease, box-shadow 220ms ease;
+         }
+
+         .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 42px rgba(62, 42, 37, 0.16);
+         }
+
+         .project-card .card-title {
+            color: #382d2a;
+            font-weight: 700;
+         }
+
+         .project-list {
+            padding-left: 1.25rem;
+         }
+
+         .project-list li + li {
+            margin-top: 0.4rem;
+         }
+
+         .btn-project {
+            border-color: var(--cor-destaque);
+            background-color: var(--cor-destaque);
+            color: #fff;
+         }
+
+         .btn-project:hover,
+         .btn-project:focus-visible {
+            border-color: var(--cor-destaque-hover);
+            background-color: var(--cor-destaque-hover);
+            color: #fff;
+         }
+
+         .animate-in {
+            animation: fade-up 650ms ease-out both;
+         }
+
+         .animate-in-delay {
+            animation-delay: 140ms;
+         }
+
+         @keyframes fade-up {
+            from {
+               opacity: 0;
+               transform: translateY(18px);
+            }
+            to {
+               opacity: 1;
+               transform: translateY(0);
+            }
+         }
+
+         #btn-topo {
+            display: grid;
+            width: 3rem;
+            height: 3rem;
+            place-items: center;
+            border: 0;
+            border-radius: 50%;
+            background-color: var(--cor-destaque);
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(0.5rem);
+            transition: opacity 180ms ease, transform 180ms ease;
+         }
+
+         #btn-topo.is-visible {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+         }
+
+         :focus-visible {
+            outline: 3px solid #c17463;
+            outline-offset: 3px;
+         }
+
+         @media (max-width: 576px) {
+            body {
+               background-size: min(80vw, 400px) auto;
+            }
+
+            .site-nav a {
+               margin-right: 0.5rem !important;
+               margin-left: 0.5rem;
+            }
+         }
+
+         @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+               scroll-behavior: auto !important;
+               animation-duration: 0.01ms !important;
+               animation-iteration-count: 1 !important;
+               transition-duration: 0.01ms !important;
+            }
+         }
+      </style>
    </head>
-   <body class="bg-light">
+   <body class="bg-white">
 <!-- HEADER -->
-<header class="bg-dark text-white py-4">
+<header class="site-header text-white py-4">
    <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between">
       <h1 class="h4 mb-0">Érica das Chagas</h1>
-      <nav class="mt-2 mt-md-0">
-         <a href="#sobre" class="text-white me-3"><i class="bi bi-person-circle"></i> Sobre</a>
-         <a href="#projetos" class="text-white me-3"><i class="bi bi-code-slash"></i> Projetos</a>
-         <a href="#contato" class="text-white"><i class="bi bi-envelope"></i> Contato</a>
+      <nav class="site-nav mt-2 mt-md-0" aria-label="Navegação principal">
+         <a href="#sobre" class="text-white me-3"><i class="bi bi-person-circle" aria-hidden="true"></i> Sobre</a>
+         <a href="#projetos" class="text-white"><i class="bi bi-code-slash" aria-hidden="true"></i> Projetos</a>
       </nav>
    </div>
 </header>
 <!-- SOBRE MIM -->
 <section id="sobre" class="container py-5">
-   <div class="row align-items-center">
+   <div class="about-panel row align-items-center animate-in">
       <div class="col-md-4 text-center mb-4 mb-md-0">
-         <img src="sua-foto.jpeg" alt="Foto de perfil" class="rounded-circle img-fluid" style="max-width: 200px;" />
+         <img src="sua-foto.jpeg" alt="Foto de perfil de Érica" class="profile-photo rounded-circle img-fluid" style="max-width: 200px;" />
       </div>
       <div class="col-md-8">
-         <h2>Sobre mim</h2>
-         <p>Olá! Sou estudante de Sistemas de Informação e este é meu primeiro portfólio. Gosto de aprender novas tecnologias e construir soluções criativas para a web. Tenho interesse em front-end, usabilidade e acessibilidade digital. Estou constantemente em busca de novos desafios para aplicar e aperfeiçoar minhas habilidades técnicas.</p>
+         <p class="text-uppercase fw-semibold small mb-2" style="color: var(--cor-destaque);">Quem sou</p>
+         <h2 class="section-title mb-3">Sobre mim</h2>
+         <p class="mb-0 lh-lg">Olá! Sou estudante de Sistemas de Informação e este é meu primeiro portfólio. Gosto de aprender novas tecnologias e construir soluções criativas para a web. Tenho interesse em front-end, usabilidade e acessibilidade digital. Estou constantemente em busca de novos desafios para aplicar e aperfeiçoar minhas habilidades técnicas.</p>
       </div>
    </div>
 </section>
 <!-- PROJETOS -->
-<section id="projetos" class="container py-5 bg-white">
-   <h2>Projetos</h2>
-   <div class="row">
-      <div class="col-md-4 mb-4">
-         <div class="card h-100 shadow-sm">
-            <div class="card-body">
-               <h5 class="card-title">Brechó Chic Kenara</h5>
-               <p class="card-text">O site é focado em:
-Exposição de peças de vestuário e acessórios;
-Divulgação da marca Brechó Chic Kenara;
-Experiência de compra simples e visual;
-Incentivo ao consumo sustentável por meio da reutilização de roupas.</p>
-<a href="https://brecho-chic-kenara.vercel.app/"
-   target="_blank"
-   rel="noopener noreferrer"
-   class="btn btn-link">
-   Brechó Chic Kenara 🌸
-</a>
+<section id="projetos" class="container py-5">
+   <h2 class="section-title mb-4">Projetos</h2>
+   <div class="row g-4">
+      <div class="col-md-6 animate-in">
+         <div class="project-card card h-100">
+            <div class="card-body d-flex flex-column p-4 p-lg-5">
+               <div class="mb-3 fs-3" style="color: var(--cor-destaque);" aria-hidden="true"><i class="bi bi-flower1"></i></div>
+               <h3 class="card-title h5">Brechó Chic Kenara</h3>
+               <p class="card-text">Um site pensado para valorizar a marca e tornar a experiência de compra simples e agradável.</p>
+               <ul class="project-list mb-4">
+                  <li>Exposição de roupas e acessórios</li>
+                  <li>Incentivo ao consumo sustentável</li>
+                  <li>Divulgação da marca</li>
+               </ul>
+               <a href="https://brecho-chic-kenara.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-project mt-auto align-self-start">
+                  Conheça o Brechó Chic Kenara <i class="bi bi-box-arrow-up-right ms-1" aria-hidden="true"></i>
+               </a>
             </div>
          </div>
       </div>
-      <div class="col-md-4 mb-4">
-         <div class="card h-100 shadow-sm">
-            <div class="card-body">
-               <h5 class="card-title">EsseClick Fotografias</h5>
-               <p class="card-text">Site de fotografia de eventos da EsseClick, com galeria de imagens e acesso ao formulário de orçamento.</p>
-               <a href="./esseclick/" class="btn btn-link">Conheça o EsseClick 📸</a>
+      <div class="col-md-6 animate-in animate-in-delay">
+         <div class="project-card card h-100">
+            <div class="card-body d-flex flex-column p-4 p-lg-5">
+               <div class="mb-3 fs-3" style="color: var(--cor-destaque);" aria-hidden="true"><i class="bi bi-camera"></i></div>
+               <h3 class="card-title h5">EsseClick Fotografias</h3>
+               <p class="card-text mb-4">Site de fotografia de eventos com galeria de imagens e acesso ao formulário de orçamento.</p>
+               <a href="./esseclick/" class="btn btn-project mt-auto align-self-start">
+                  Conheça o EsseClick <i class="bi bi-arrow-right ms-1" aria-hidden="true"></i>
+               </a>
             </div>
          </div>
       </div>
    </div>
-</section>
-<!-- CONTATO -->
-<section id="contato" class="container py-5">
-   <h2>Contato</h2>
-   <form id="form-contato">
-      <div class="mb-3">
-         <label for="nome" class="form-label">Nome</label>
-         <input type="text" class="form-control" id="nome" required />
-      </div>
-      <div class="mb-3">
-         <label for="email" class="form-label">E-mail</label>
-         <input type="email" class="form-control" id="email" required />
-      </div>
-      <div class="mb-3">
-         <label for="mensagem" class="form-label">Mensagem</label>
-         <textarea class="form-control" id="mensagem" rows="3" required></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary">Enviar</button>
-   </form>
 </section>
 <!-- FOOTER RODAPÉ -->
 <footer class="bg-dark text-white text-center py-4">
    <p class="mb-2"><i class="bi bi-c-circle"></i> 2025 - Seu Nome</p>
    <div>
-      <a href="https://github.com/ericavieira-25" class="text-white me-3"><i class="bi bi-github"></i></a>
-      <a href="https://www.linkedin.com/in/%C3%A9rica-vieira-00094b2b/" class="text-white me-3"><i class="bi bi-linkedin"></i></a>
-      <a href="mailto: erica.lol76@gmail.com" class="text-white"><i class="bi bi-envelope"></i></a>
+      <a href="https://github.com/ericavieira-25" class="text-white me-3" aria-label="GitHub de Érica"><i class="bi bi-github" aria-hidden="true"></i></a>
+      <a href="https://www.linkedin.com/in/%C3%A9rica-vieira-00094b2b/" class="text-white" aria-label="LinkedIn de Érica"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
    </div>
 </footer>
 
     <!-- BOTÃO VOLTAR AO TOPO -->
-<button id="btn-topo" class="btn btn-primary position-fixed bottom-0 end-0 m-4" style="display: none;">
-<i class="bi bi-arrow-up-short"></i>
+<button id="btn-topo" type="button" class="btn text-white position-fixed bottom-0 end-0 m-4" aria-label="Voltar ao topo" aria-hidden="true" tabindex="-1">
+<i class="bi bi-arrow-up-short fs-3" aria-hidden="true"></i>
 </button>
 <!-- SCRIPT -->
 <script>
    window.addEventListener('scroll', () => {
      const btn = document.getElementById('btn-topo');
-     btn.style.display = window.scrollY > 300 ? 'block' : 'none';
+     const isVisible = window.scrollY > 300;
+     if (!isVisible && document.activeElement === btn) {
+       btn.blur();
+     }
+     btn.classList.toggle('is-visible', isVisible);
+     btn.setAttribute('aria-hidden', String(!isVisible));
+     btn.tabIndex = isVisible ? 0 : -1;
    });
    
    document.getElementById('btn-topo').addEventListener('click', () => {
-     window.scrollTo({ top: 0, behavior: 'smooth' });
+     const behavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth';
+     window.scrollTo({ top: 0, behavior });
    });
 </script>
-<script>
-   document.getElementById('form-contato').addEventListener('submit', function (e) {
-     e.preventDefault();
-     const nome = document.getElementById('nome').value;
-     const email = document.getElementById('email').value;
-     const mensagem = document.getElementById('mensagem').value;
-   
-     alert(`Obrigado, ${nome}! Sua mensagem foi enviada com sucesso.\n\nE-mail: ${email}\nMensagem: ${mensagem}`);
-     
-     this.reset();
-   });
-</script>
-
 </body>
 </html>
-
