@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<script type="importmap">
+{
+  "imports": {
+    "@floating-ui/dom": "https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.7.6/dist/floating-ui.dom.esm.min.js",
+    "vanilla-calendar-pro": "https://cdn.jsdelivr.net/npm/vanilla-calendar-pro@3.4.0/index.mjs"
+  }
+}
+</script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.min.js" integrity="sha384-BJf/nQgxZJU68GxBse97Vdlc8Rh+z9PzzXiS3/BjV+1nQPR7IKn+iJnD3DJvCMaU" crossorigin="anonymous"></script>
+    
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Fotos impressas na hora para tornar seu evento ainda mais especial.">
+  <title>EsseClick Fotografias</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+      color-scheme: light;
+      --brown: #4a2c20;
+      --brown-dark: #2e1a12;
+      --cream: #f3e9dc;
+      --gold: #d4a017;
+    }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--brown-dark);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    }
+
+    .hero {
+      padding: 64px 20px 48px;
+      background: radial-gradient(circle at top left, #6f4e37, var(--brown-dark) 70%);
+      color: var(--cream);
+      text-align: center;
+    }
+
+    .hero-content,
+    .gallery,
+    .contact {
+      width: min(100%, 1000px);
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 6vw, 3.2rem);
+    }
+
+    .hero p {
+      max-width: 620px;
+      margin: 0 auto 24px;
+      color: #e4d7c8;
+      line-height: 1.6;
+    }
+
+    .whatsapp {
+      display: inline-block;
+      padding: 14px 26px;
+      border-radius: 999px;
+      background: #c19a6b;
+      color: #2e1a12;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .whatsapp:hover {
+      background: #b08968;
+    }
+
+    section {
+      padding: 44px 20px;
+    }
+
+    h2 {
+      margin: 0 0 24px;
+      color: var(--brown);
+      text-align: center;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 28px;
+      padding: 8px;
+    }
+
+    .polaroid {
+      margin: 0;
+      padding: 12px 12px 40px;
+      background: #fff;
+      border-radius: 5px;
+      box-shadow: 0 10px 24px rgba(46, 26, 18, 0.18);
+      transform: rotate(-1.5deg);
+      transition: transform 0.2s ease;
+    }
+
+    .polaroid:nth-child(even) {
+      transform: rotate(1.5deg);
+    }
+
+    .polaroid:hover {
+      transform: rotate(0) scale(1.03);
+    }
+
+    .polaroid img {
+      display: block;
+      width: 100%;
+      height: 230px;
+      border-radius: 2px;
+      object-fit: cover;
+    }
+
+    .polaroid figcaption {
+      padding-top: 12px;
+      color: var(--brown);
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    footer {
+      padding: 24px 16px;
+      color: #e4d7c8;
+      background: var(--brown-dark);
+      text-align: center;
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding-top: 48px;
+      }
+
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-content">
+      <h1>EsseClick Fotografias</h1>
+      <p>Fotos impressas na hora para tornar seu evento ainda mais especial. Veja alguns momentos e fale com a gente.</p>
+      <a
+        class="whatsapp"
+        href="https://funilpro.com.br/xA1oXX"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Chamar no WhatsApp</a>
+    </div>
+  </header>
+
+  <section aria-labelledby="gallery-title">
+    <h2 id="gallery-title">Nossos momentos</h2>
+    <div class="gallery">
+      <figure class="polaroid">
+        <img src="Bibiana 02.jpg" alt="Foto de evento da EsseClick">
+        <figcaption>Momentos especiais</figcaption>
+      </figure>
+      <figure class="polaroid">
+        <img src="z-20.jpg" alt="Foto de evento da EsseClick">
+        <figcaption>Memórias para guardar</figcaption>
+      </figure>
+      <figure class="polaroid">
+        <img src="Bibiana 12.jpg" alt="Foto de evento da EsseClick">
+        <figcaption>Seu evento em fotos</figcaption>
+      </figure>
+      <figure class="polaroid">
+        <img src="tarcisio 01.jpg" alt="Foto de evento da EsseClick">
+        <figcaption>Impressas na hora</figcaption>
+      </figure>
+      <figure class="polaroid">
+        <img src="z-14.jpg" alt="Foto de evento da EsseClick">
+        <figcaption>Momentos inesquecíveis</figcaption>
+      </figure>
+      <figure class="polaroid">
+        <img src="IMG_5630.JPG" alt="Foto de evento da EsseClick">
+        <figcaption>Uma lembrança especial</figcaption>
+      </figure>
+    </div>
+  </section>
+
+<div 
+class="d-flow-root">
+  <div class="float-end px-3 py-2 border rounded-3"><h2>Mais do que fotos, entregamos experiências inesquecíveis</div>
+</div>
+
+
+  <footer>EsseClick Fotografias</footer>
+</body>
+</html>
